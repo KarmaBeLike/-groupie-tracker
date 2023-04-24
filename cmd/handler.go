@@ -18,7 +18,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	}
 	GetData()
 	GetRel()
-	html, err := template.ParseFiles("templates/index.html")
+	html, err := template.ParseFiles("ui/templates/index.html")
 	if err != nil {
 		ErrorHandler(w, http.StatusInternalServerError)
 		return
@@ -49,7 +49,7 @@ func ArtistPage(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		ErrorHandler(w, http.StatusInternalServerError)
 	}
-	html, err := template.ParseFiles("templates/artist.html")
+	html, err := template.ParseFiles("ui/templates/artist.html")
 	if err != nil {
 		ErrorHandler(w, http.StatusInternalServerError)
 		return
@@ -69,7 +69,7 @@ type ErrorPage struct {
 func ErrorHandler(w http.ResponseWriter, code int) {
 	w.WriteHeader(code)
 	errstr := ErrorPage{code, http.StatusText(code)}
-	html, err := template.ParseFiles("templates/error.html")
+	html, err := template.ParseFiles("ui/templates/error.html")
 	if err != nil {
 		http.Error(w, http.StatusText(500), http.StatusInternalServerError)
 		return
