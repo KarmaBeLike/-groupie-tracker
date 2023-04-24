@@ -63,6 +63,20 @@ img {
     
 }
 
+.link-back:hover {
+    color: yellow;
+    transition: color .3s ease-in;
+}
+.link-back:hover svg {
+    fill: yellow;
+    transition: fill 1s ease;
+}
+
+.link-back:hover svg {
+    transform: translateX(-10px);
+    transition: transform .3s ease-in;
+}
+
 .header-artist {
     margin: 0;
 }
