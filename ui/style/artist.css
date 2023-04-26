@@ -1,9 +1,5 @@
 body {
     background-color: white;
-    
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 
 }
 
@@ -31,7 +27,7 @@ body {
 .key-tour {
     font-weight: 700;
     text-transform: uppercase;
-    text #fff;
+    
 }
 
 .header-artist {
@@ -42,7 +38,7 @@ body {
 img {
     display: block;
     margin: 0 auto;
-    width: 20%;
+    width: 10%;
 
 }
 
