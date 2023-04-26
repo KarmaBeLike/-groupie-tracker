@@ -1,0 +1,13 @@
+.link {
+    text-decoration: none;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+
+}
+.link:hover {
+    color: yellow;
+    transition: color .3s ease-in;
+
+}

@@ -28,11 +28,11 @@ This project focuses on building a user friendly website where it displays the b
 
 **1.Enter this command to start the program:**
 
-    go run ./cmd/*
+    go run 
 
 **2.Open the web browser and go to:**
 
-    http://127.0.0.1:4000/ or localhost:4000
+  http://127.0.0.1:8080
     
 
 ## Authors:

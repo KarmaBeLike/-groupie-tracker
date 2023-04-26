@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="/ui/style/main-style.css">
     <title>Groupie-Tracker</title>
 </head>
+
 <body>
     <header class="header">
         <a class="link" href="/">
@@ -17,14 +19,24 @@
         {{range .}}
         <div class="content polaroid">
             <a class="link2" href="/artist/{{.ID}}">
+                <img class="slide" src="{{.Image}}">
+                <div class="caption">
+                    {{.Name}}
+                </div>
+            </a>
+        </div>
+        {{end}}
+
+        <a class="polaroid" href="/artist/{{.ID}}">
+             <div class="polaroid"> 
             <img class="slide" src="{{.Image}}">
             <div class="caption">
                 {{.Name}}
             </div>
-            </a>
-        </div>
-            {{end}}
+             </div> 
+        </a>
     </div>
-   
+
 </body>
+
 </html>
