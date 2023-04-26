@@ -10,20 +10,21 @@
 <body>
     <header class="header">
         <a class="link" href="/">
-            <h1>Groupie-Tracker</h1>
+            <h1>Groupie - Tracker</h1>
         </a>
     </header>
     <div class="container">
         {{range .}}
-        <div class="content">
-            <a class="link" href="/artist/{{.ID}}">
-            <img src="{{.Image}}">
-            <div>
+        <div class="content polaroid">
+            <a class="link2" href="/artist/{{.ID}}">
+            <img class="slide" src="{{.Image}}">
+            <div class="caption">
                 {{.Name}}
             </div>
             </a>
         </div>
             {{end}}
     </div>
+   
 </body>
 </html>
