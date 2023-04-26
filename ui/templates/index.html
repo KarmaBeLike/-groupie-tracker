@@ -17,24 +17,27 @@
     </header>
     <div class="container">
         {{range .}}
-        <div class="content polaroid">
+        <!-- <div class="content polaroid">
             <a class="link2" href="/artist/{{.ID}}">
                 <img class="slide" src="{{.Image}}">
                 <div class="caption">
                     {{.Name}}
                 </div>
             </a>
-        </div>
+        </div> -->
+
+        <a class="polaroid__card" href="/artist/{{.ID}}">
+            <div class="polaroid__img__block">
+                <img class="polaroid__img" src="{{.Image}}" />
+            </div>
+            <div class="polaroid__caption__block">
+                <p class="polaroid__caption">
+                    {{.Name}}
+                </p>
+            </div>
+        </a>
         {{end}}
 
-        <a class="polaroid" href="/artist/{{.ID}}">
-             <div class="polaroid"> 
-            <img class="slide" src="{{.Image}}">
-            <div class="caption">
-                {{.Name}}
-            </div>
-             </div> 
-        </a>
     </div>
 
 </body>

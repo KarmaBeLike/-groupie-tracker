@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,40 +8,42 @@
     <link rel="stylesheet" href="/ui/style/artist.css">
     <title>Groupie-Tracker</title>
 </head>
+
 <body>
     <a class="link" href="/">
         <h1>Groupie - Tracker</h1>
     </a>
     <div class="container container-artist">
-       
-            <h2 class="header-artist">{{.Name}}</h2>
-        </div>
-        <div class="content">
-          
-            <img src="{{.Image}}" class="center">
+
+        <h2 class="header-artist">{{.Name}}</h2>
+    </div>
+    <div class="content">
+
+        <img src="{{.Image}}" class="center">
         </a>
+    </div>
+    <div class="wrapper-content">
+        <div class="members">
+            <h3>Members:</h3>
+            {{range .Members}}
+            <p>{{.}}</p>
+            {{end}}
+            <hr>
+            <p>Creation date: {{.CreationDate}}</p>
+            <p>First studio album date: {{.FirstAlbum}}</p>
         </div>
-        <div class="wrapper-content">
-            <div class="members">
-                <h3>Members:</h3>
-                {{range .Members}}
-                <p>{{.}}</p>
-                {{end}}
-                <hr>
-                <p>Creation date: {{.CreationDate}}</p>
-                <p>First studio album date: {{.FirstAlbum}}</p>
-            </div>
-            <div class="tours">
-                <h3>Tours:</h3>
-                {{range $key, $value := .DatesLocations}}
-                <p class="key-tour">{{$key}}:</p>
-                    {{range $value}}
-                <p class="date-value">{{.}}</p>
-                    {{end}}
-                {{end}}
-            </div>
+        <div class="tours">
+            <h3>Tours:</h3>
+            {{range $key, $value := .DatesLocations}}
+            <p class="key-tour">{{$key}}:</p>
+            {{range $value}}
+            <p class="date-value">{{.}}</p>
+            {{end}}
+            {{end}}
         </div>
-       
+    </div>
+
     </div>
 </body>
+
 </html>
