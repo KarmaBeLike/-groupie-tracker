@@ -2,11 +2,6 @@
     box-sizing: border-box;
 }
 
-img {
-    width: 100%;
-    
-}
-
 .link {
     text-decoration: none;
     text-align: center;
@@ -29,6 +24,7 @@ img {
     transition: color .3s ease-in;
 
 }
+
 body {
     background-color: #000;
 
@@ -77,4 +73,9 @@ body {
     padding: 10px;
   }
   
-  
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5%;
+  }

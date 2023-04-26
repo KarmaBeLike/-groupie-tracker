@@ -11,20 +11,13 @@ body {
 }
 .container-artist {
     flex-direction: column;
+    
 }
-
 .wrapper-content {
     display: flex;
     justify-content: space-around;
     width: 100%;
     /* gap: 25px; */
-}
-
-.mini-header {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 20px;
 }
 
 .key-tour {
@@ -33,31 +26,20 @@ body {
     text #fff;
 }
 
-.link-back {
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
+.header-artist {
+    margin: 0;
+    text-align: center;
 }
-
-.link-back svg {
-    margin-right: 10px;
+img {
+    display: block;
+      margin: 0 auto;
+      width: 20%;
     
 }
 
-.link-back:hover {
-    color: yellow;
+
+.link:hover {
+    color: rgb(0, 140, 255);
     transition: color .3s ease-in;
-}
-.link-back:hover svg {
-    fill: yellow;
-    transition: fill 1s ease;
-}
 
-.link-back:hover svg {
-    transform: translateX(-10px);
-    transition: transform .3s ease-in;
-}
-
-.header-artist {
-    margin: 0;
 }
