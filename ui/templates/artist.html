@@ -1,49 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/ui/style/artist.css">
-    <title>Groupie-Tracker</title>
+   <link rel="shortcut icon" href="{{.Image}}" type="image/x-icon">
+   <title>{{.Name}}</title>
 </head>
-
 <body>
-    <a class="link" href="/">
-        <h1>Groupie - Tracker</h1>
-    </a>
-    <div class="container container-artist">
 
-        <h2 class="header-artist">{{.Name}}</h2>
-    </div>
-    <div class="content">
-
-        <img src="{{.Image}}">
+  <div class="wrapper">
+    <header class="header">
+        <a class="link" href="/">
+            <h1>Groupie - Tracker</h1>
         </a>
-    </div>
-    <div class="wrapper-content">
-        <div class="members">
-            <h3>Members:</h3>
-            {{range .Members}}
-            <p>{{.}}</p>
-            {{end}}
-            <hr>
-            <p>Creation date: {{.CreationDate}}</p>
-            <p>First studio album date: {{.FirstAlbum}}</p>
+    </header>
+    <h2 class="header-artist">{{.Name}}</h2>
+  <div class="artist_box">
+     <div class="artist_title">
+        <div class="artist_data">
+           <img clase="artist_image" src="{{.Image}}" alt="">
+           <h2>{{.Name}}</h2>
+           <h4>Creation Date: {{.CreationDate}}</h4> 
+           <h4>First Album: {{.FirstAlbum}}</h4>
+              <details>
+                 <summary>Members</summary>
+              <ul>
+                 {{range.Members}}
+                    <li> 
+                       <strong>
+                          {{.}}
+                       </strong>
+                    </li>
+                    {{end}}
+                 </ul>
+              </details>
+              <details>
+                 <summary>Dates Location</summary>
+                 <ul>
+                    {{range $key, $value := .DatesLocations}}
+                    <li><strong>{{$key}}</strong> <br>
+                       {{range .}}
+                          {{.}}
+                          <br>
+                       {{end}}
+                    </li>
+                    {{end}}
+                 </ul>
+              </details>
         </div>
-        <div class="tours">
-            <h3>Tours:</h3>
-            {{range $key, $value := .DatesLocations}}
-            <p class="key-tour">{{$key}}:</p>
-            {{range $value}}
-            <p class="date-value">{{.}}</p>
-            {{end}}
-            {{end}}
-        </div>
-    </div>
-
-    </div>
-</body>
-
+     </div>
+  </div>
+ 
 </html>
