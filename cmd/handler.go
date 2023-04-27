@@ -9,15 +9,25 @@ import (
 
 func Home(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		ErrorHandler(w, 404)
+		ErrorHandler(w, http.StatusNotFound)
 		return
 	}
 	if r.Method != http.MethodGet {
 		ErrorHandler(w, http.StatusMethodNotAllowed)
 		return
 	}
-	GetData()
-	GetRel()
+	err := GetData()
+	if err != nil {
+		ErrorHandler(w, http.StatusInternalServerError)
+		return
+	}
+
+	err = GetRel()
+	if err != nil {
+		ErrorHandler(w, http.StatusInternalServerError)
+		return
+	}
+
 	html, err := template.ParseFiles("ui/templates/index.html")
 	if err != nil {
 		ErrorHandler(w, http.StatusInternalServerError)
@@ -33,8 +43,13 @@ func Home(w http.ResponseWriter, r *http.Request) {
 func ArtistPage(w http.ResponseWriter, r *http.Request) {
 	path := strings.Split(r.URL.Path, "/")
 	id, err := strconv.Atoi(path[2])
+	if id <= 0 || id >= 53 {
+		ErrorHandler(w, http.StatusNotFound)
+		return
+	}
+
 	if r.URL.Path != "/"+path[1]+"/"+path[2] || err != nil {
-		ErrorHandler(w, 404)
+		ErrorHandler(w, http.StatusNotFound)
 		return
 	}
 	if r.Method != http.MethodGet {
@@ -44,10 +59,12 @@ func ArtistPage(w http.ResponseWriter, r *http.Request) {
 	err = GetData()
 	if err != nil {
 		ErrorHandler(w, http.StatusInternalServerError)
+		return
 	}
 	err = GetRel()
 	if err != nil {
 		ErrorHandler(w, http.StatusInternalServerError)
+		return
 	}
 	html, err := template.ParseFiles("ui/templates/artist.html")
 	if err != nil {
@@ -67,15 +84,18 @@ type ErrorPage struct {
 }
 
 func ErrorHandler(w http.ResponseWriter, code int) {
-	w.WriteHeader(code)
 	errstr := ErrorPage{code, http.StatusText(code)}
 	html, err := template.ParseFiles("ui/templates/error.html")
 	if err != nil {
-		http.Error(w, http.StatusText(500), http.StatusInternalServerError)
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Internal Server Error"))
 		return
 	}
+	w.WriteHeader(code)
 	err = html.Execute(w, errstr)
 	if err != nil {
-		http.Error(w, http.StatusText(500), http.StatusInternalServerError)
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Internal Server Error"))
+		return
 	}
 }

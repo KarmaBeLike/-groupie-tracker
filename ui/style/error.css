@@ -1,3 +1,6 @@
+body {
+    background-color: black;
+}
 .link {
     text-decoration: none;
     text-align: center;
@@ -10,4 +13,17 @@
     color: yellow;
     transition: color .3s ease-in;
 
+}
+.status-err {
+    margin-top: 150px;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+}
+.header {
+    color:rgb(255, 255, 255)
+}
+.status-err:hover{
+    color: red;
 }

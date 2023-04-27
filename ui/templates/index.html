@@ -17,15 +17,6 @@
     </header>
     <div class="container">
         {{range .}}
-        <!-- <div class="content polaroid">
-            <a class="link2" href="/artist/{{.ID}}">
-                <img class="slide" src="{{.Image}}">
-                <div class="caption">
-                    {{.Name}}
-                </div>
-            </a>
-        </div> -->
-
         <a class="polaroid__card" href="/artist/{{.ID}}">
             <div class="polaroid__img__block">
                 <img class="polaroid__img" src="{{.Image}}" />
