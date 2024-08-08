@@ -28,7 +28,10 @@ This project focuses on building a user friendly website where it displays the b
 
 **1.Enter this command to start the program:**
 
-    go run .
+    go run ./cmd - with default port
+
+    go run ./cmd ":<any port>" - with any port you prefer
+    
 
 **2.Open the web browser and go to:**
 

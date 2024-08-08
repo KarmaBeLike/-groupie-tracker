@@ -1,4 +1,4 @@
-package cmd
+package internal
 
 import (
 	"html/template"
@@ -43,6 +43,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 func ArtistPage(w http.ResponseWriter, r *http.Request) {
 	path := strings.Split(r.URL.Path, "/")
 	id, err := strconv.Atoi(path[2])
+
 	if id <= 0 || id >= 53 {
 		ErrorHandler(w, http.StatusNotFound)
 		return
@@ -76,11 +77,6 @@ func ArtistPage(w http.ResponseWriter, r *http.Request) {
 		ErrorHandler(w, http.StatusInternalServerError)
 		return
 	}
-}
-
-type ErrorPage struct {
-	Code    int
-	Message string
 }
 
 func ErrorHandler(w http.ResponseWriter, code int) {
